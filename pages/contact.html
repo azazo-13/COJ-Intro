@@ -58,8 +58,8 @@ label{font-size:13px;color:var(--muted);margin-bottom:6px;font-family:'Open Sans
     <div class="brand">
       <img src="https://i.servimg.com/u/f11/19/17/76/36/fwmnt112.png" alt="Logo" style="width:200px;border-radius:200px;">
       <div>
-        <h1>Cour Supérieure de Justice</h1>
-		<h2>de Los Santos</h2>
+        <h1>Cour Supérieure</h1>
+		<h1>de San Andreas </h1>
         <div class="small">Contact</div>
       </div>
     </div>
@@ -223,7 +223,7 @@ label{font-size:13px;color:var(--muted);margin-bottom:6px;font-family:'Open Sans
 	
 	
 	<footer>
-    © Cour Supérieure de Justice de Los Santos 
+    © Cour Supérieure de San Andreas 
 	</footer>
   
 <script>
@@ -258,17 +258,33 @@ navLinks.forEach(link => {
 
 const embed = {
   embeds: [{
-    title: "Nouveau message de contact",
-    color: 15158332, // Rouge clair
+    title: "📩 Nouveau message de contact",
+    description: "Vous avez reçu un nouveau message via le formulaire de contact.",
+    color: 0x5865F2, // Bleu Discord
     fields: [
-      { name: "Nom", value: data.get('pseudo'), inline: true },
-      { name: "Message", value: data.get('message') },
-      { name: "Téléphone", value: data.get('telephone'), inline: true },
-      { name: "Compte Life", value: data.get('life'), inline: true }
+      { name: "👤 Nom", value: data.get('pseudo') || "Non fourni", inline: true },
+      { name: "📞 Téléphone", value: data.get('telephone') || "Non fourni", inline: true },
+      { 
+        name: "🌐 Compte Life", 
+        value: data.get('life') 
+          ? `[Voir le profil](${data.get('life')})` 
+          : "Non fourni", 
+        inline: true 
+      },
+      { name: "📝 Message", value: data.get('message') || "Aucun message" }
     ],
+    thumbnail: {
+      url: "https://cdn-icons-png.flaticon.com/512/847/847969.png" // Icône avatar générique
+    },
+    footer: {
+      text: "Formulaire de contact • " + new Date().toLocaleDateString(),
+      icon_url: "https://cdn-icons-png.flaticon.com/512/561/561127.png" // Icône décorative
+    },
     timestamp: new Date()
   }]
 };
+
+
 
     await fetch(webhookContact, {
       method:'POST',
