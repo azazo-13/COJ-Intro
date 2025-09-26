@@ -47,6 +47,12 @@ footer{padding:18px;text-align:center;color:var(--muted);font-size:13px}
 .tab.active{background:var(--glass);color:var(--accent)}
 .rule{margin-bottom:12px}
 .small{font-size:13px;color:var(--muted)}
+.tabs {
+  display: flex;
+  justify-content: center; /* centre les tabs horizontalement */
+  gap: 10px;
+  margin-bottom: 12px;
+}
 form .row{display:flex;flex-direction:column;margin-bottom:10px}
 input,textarea,select{background:transparent;border:1px solid rgba(255,255,255,0.08);padding:10px;border-radius:8px;color:#e6eef6;font-family:'Open Sans',sans-serif}
 label{font-size:13px;color:var(--muted);margin-bottom:6px;font-family:'Open Sans',sans-serif}
@@ -62,7 +68,7 @@ label{font-size:13px;color:var(--muted);margin-bottom:6px;font-family:'Open Sans
 		<h2>de Los Santos</h2>
         <div class="small">Règlements</div>
       </div>
-    </div>
+	</div>
     <nav>
       <a href="../index.html" data-target="home">Accueil</a>
       <a href="presentation.html" data-target="presentation">Présentation</a>
@@ -74,7 +80,7 @@ label{font-size:13px;color:var(--muted);margin-bottom:6px;font-family:'Open Sans
       <a href="contact.html" data-target="contact">Contact / Informations pratiques</a>
     </nav>
   </header>
-  </body>
+ </body>
   
 <div class="card">
   <!-- Boutons des tabs -->
@@ -83,6 +89,7 @@ label{font-size:13px;color:var(--muted);margin-bottom:6px;font-family:'Open Sans
     <div class="tab" data-tab="tab-proc">Procédures</div>
     <div class="tab" data-tab="tab-sanctions">Sanctions</div>
   </div>
+</div> 
 <style>
 /* Section règlement */
 #tab-general {
@@ -173,7 +180,6 @@ label{font-size:13px;color:var(--muted);margin-bottom:6px;font-family:'Open Sans
 }
 </style>
 
-</style>
 
 
 
@@ -298,14 +304,14 @@ label{font-size:13px;color:var(--muted);margin-bottom:6px;font-family:'Open Sans
     </div>
   </div>
   <div id="tab-proc" style="display:none">
-    <img class="construction-img" src="https://www.ville-hem.fr/wp-content/uploads/2020/09/Page-en-construction.jpg" alt="Page en construction">
+    <img class="construction-img" src="https://www.mieldici.fr/index_fichiers/EnTravaux.png" alt="Page en construction">
     <h1>Page en travaux</h1>
     <p>Cette section du site de la <strong>Cour Supérieure de Justice de Los Santos</strong> est actuellement en maintenance.</p>
     <p class="muted">Merci de revenir ultérieurement. Pour toute demande urgente, veuillez contacter le greffe.</p>
   </div>
 
   <div id="tab-sanctions" style="display:none">
-    <img class="construction-img" src="https://www.ville-hem.fr/wp-content/uploads/2020/09/Page-en-construction.jpg" alt="Page en construction">
+    <img class="construction-img" src="https://www.mieldici.fr/index_fichiers/EnTravaux.png" alt="Page en construction">
     <h1>Page en travaux</h1>
     <p>Cette section du site de la <strong>Cour Supérieure de Justice de Los Santos</strong> est actuellement en maintenance.</p>
     <p class="muted">Merci de revenir ultérieurement. Pour toute demande urgente, veuillez contacter le greffe.</p>
@@ -314,6 +320,7 @@ label{font-size:13px;color:var(--muted);margin-bottom:6px;font-family:'Open Sans
     © Cour Supérieure de Justice de Los Santos 
 	</footer>
 <script>
+
 const tabs = document.querySelectorAll('.tab');
 const sections = document.querySelectorAll('#tab-general, #tab-proc, #tab-sanctions');
 
@@ -351,4 +358,4 @@ navLinks.forEach(link => {
 });
 
 </script>
-</body>
+</html>
