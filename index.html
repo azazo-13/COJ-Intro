@@ -1,12 +1,11 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Cour de Justice de Los Santos</title>
-  <meta name="description" content="Site d'information du Barreau — règlements, membres, procédures et actualités." />
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="https://static.wikia.nocookie.net/kronologia-rp/images/f/f8/ZiYDsGM.png/revision/latest?cb=20190609184544&path-prefix=fr">
+  <meta name="description" content="Site d'information de Cour de Justice de Los Santos — règlements, membres, procédures et actualités." />
+  <link rel="icon" href="https://i.servimg.com/u/f11/19/17/76/36/fwmnt112.png">
 <style>
 :root{
   /* Palette principale */
@@ -19,6 +18,13 @@
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:'Open Sans',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#e6eef6;background:linear-gradient(180deg,var(--bg) 0%,#1f2a3a 100%);-webkit-font-smoothing:antialiased
+/* centrage parfait */
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* au lieu de height:100vh */
+  text-align: center;
+  background: linear-gradient(180deg,var(--bg) 0%,#1f2a3a 100%);
 }
 header{display:flex;align-items:center;gap:16px;padding:18px 20px;border-bottom:1px solid rgba(255,255,255,0.05);backdrop-filter:blur(4px)}
 .brand{display:flex;align-items:center;gap:12px}
@@ -104,8 +110,8 @@ label{font-size:13px;color:var(--muted);margin-bottom:6px;font-family:'Open Sans
 			<hr style="margin:10px 0;border-color:rgba(255,255,255,0.05)" />
 			<h4>Infos</h4>
 			<div class="small" style="margin-top:8px">
-				Heures d'audience : voir <strong>Actualités</strong><br/>
-				Contact : voir <strong>Contact</strong><br/>
+				Heures d'audience : voir <a href="pages/actualites.html" style="color:#FFFFFF; font-weight:bold;"><strong>Actualités</strong></a><br/>
+				Contact : voir <a href="pages/contact.html" style="color:#FFFFFF; font-weight:bold;"><strong>Contact</strong></a><br/>
 				Adresse : <em>6025 Picture Perfect Drive, Los Santos</em>
 			 </div>
 			</div>
