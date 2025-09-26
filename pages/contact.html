@@ -73,21 +73,31 @@ label{font-size:13px;color:var(--muted);margin-bottom:6px;font-family:'Open Sans
       <a href="contact.html" data-target="contact">Contact / Informations pratiques</a>
     </nav>
   </header>
-<div class="card contact-card">
+<div class="contact-card">
   <h3>Contact</h3>
   <p class="muted">Besoin d'aide ou question ? Contactez l'équipe de la Cour de Justice.</p>
-
-  <hr class="divider" />
-
   <form onsubmit="handleContact(event)">
     <div class="row">
-      <label>Nom</label>
-      <input name="pseudo" required />
+      <label for="pseudo">Nom</label>
+      <input id="pseudo" name="pseudo" placeholder="Votre nom" required />
     </div>
+
     <div class="row">
-      <label>Message</label>
-      <textarea name="message" rows="4" required></textarea>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" placeholder="Votre message" required></textarea>
     </div>
+
+    <div class="row horizontal">
+      <div class="half">
+        <label for="telephone">Numéro de Téléphone</label>
+        <input id="telephone" name="telephone" type="text" placeholder="Ex: 555-1234" required />
+      </div>
+      <div class="half">
+        <label for="life">Compte Life</label>
+        <input id="life" name="life" type="text" placeholder="Ex: https://life.introrp.com/Exemple" required />
+      </div>
+    </div>
+
     <div class="form-actions">
       <button type="submit">Envoyer</button>
     </div>
@@ -95,102 +105,122 @@ label{font-size:13px;color:var(--muted);margin-bottom:6px;font-family:'Open Sans
 </div>
 
 <style>
-/* Contact Card compacte et centrée */
+/* Wrapper spécifique pour la card */
 .contact-card {
-  max-width: 450px; /* plus large */
-  margin: 30px auto;
-  text-align: center;
-  padding: 20px;
+  box-sizing: border-box; /* juste la card */
+  max-width: 700px;
+  width: 90%;
+  margin: 40px auto;
+  padding: 24px 28px;
   background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 14px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25); /* léger effet flottant */
-}
-
-/* Divider */
-.contact-card .divider {
-  margin: 14px 0;
-  border-color: rgba(255,255,255,0.05);
-}
-
-/* Labels */
-.contact-card label {
-  display: block;
-  text-align: left;
-  font-size: 13px;
-  margin-bottom: 6px;
-  color: #FFD966; /* doré clair pour le label */
-  font-weight: 600;
-}
-
-/* Inputs & Textarea */
-.contact-card input,
-.contact-card textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.05); /* léger fond clair pour visibilité */
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
   color: #e6eef6;
   font-family: 'Open Sans', sans-serif;
-  font-size: 15px;
-  transition: 0.3s;
+  text-align: left;
 }
 
-.contact-card input::placeholder,
-.contact-card textarea::placeholder {
-  color: rgba(230,238,246,0.6); /* placeholder plus clair */
+/* Assure que tous les éléments respectent box-sizing */
+.contact-card input,
+.contact-card textarea,
+.contact-card label,
+.contact-card button {
+  box-sizing: border-box;
 }
 
-/* Focus sur champs */
+/* Titres et paragraphes */
+.contact-card h3 {
+  font-size: 1.7em !important;
+  margin-bottom: 16px !important;
+  color: var(--accent) !important;
+  text-align: center !important;
+}
+
+.contact-card p.muted {
+  font-size: 0.9em !important;
+  margin-bottom: 24px !important;
+  color: #cbd5e1 !important;
+  text-align: center !important;
+}
+
+/* Champs du formulaire */
+.contact-card .row {
+  display: flex !important;
+  flex-direction: column !important;
+  margin-bottom: 16px !important;
+}
+
+.contact-card label {
+  display: block !important;
+  font-weight: 600 !important;
+  margin-bottom: 6px !important;
+  color: #FFD966 !important;
+}
+
+.contact-card input,
+.contact-card textarea {
+  width: 100% !important;
+  padding: 10px 14px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  background: rgba(255,255,255,0.05) !important;
+  color: #e6eef6 !important;
+  font-size: 15px !important;
+  transition: 0.3s !important;
+}
+
 .contact-card input:focus,
 .contact-card textarea:focus {
-  border-color: var(--accent); /* doré foncé au focus */
-  background: rgba(255,193,7,0.05);
-  outline: none;
+  border-color: var(--accent) !important;
+  background: rgba(255,193,7,0.05) !important;
+  outline: none !important;
+}
+
+/* Champs côte à côte */
+.contact-card .row.horizontal {
+  flex-direction: row !important;
+  gap: 12px !important;
+}
+
+.contact-card .row.horizontal .half {
+  flex: 1 !important;
+  min-width: 0 !important;
 }
 
 /* Bouton */
 .contact-card button {
-  background: var(--accent); /* doré foncé */
-  color: #00121a;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 15px;
-  transition: 0.3s;
+  background: var(--accent) !important;
+  color: #00121a !important;
+  border: none !important;
+  padding: 12px 22px !important;
+  border-radius: 12px !important;
+  cursor: pointer !important;
+  font-weight: bold !important;
+  font-size: 15px !important;
+  transition: 0.3s !important;
 }
 
 .contact-card button:hover {
-  background: #a77906; /* doré encore plus foncé au survol */
+  background: #a77906 !important;
 }
 
-/* Form actions (centrage bouton) */
 .contact-card .form-actions {
-  display: flex;
-  justify-content: center;
-  margin-top: 12px;
-  gap: 10px;
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 14px !important;
 }
 
-/* Textes plus petits */
-.contact-card h3 {
-  font-size: 1.5em;
-  margin-bottom: 8px;
-  color: var(--accent);
-}
-
-.contact-card p.muted {
-  font-size: 0.9em;
-  margin-bottom: 14px;
-  color: #cbd5e1;
+/* Responsive pour mobile */
+@media (max-width: 600px) {
+  .contact-card .row.horizontal {
+    flex-direction: column !important;
+  }
 }
 </style>
 
-
-	  
+	
+	
 	<footer>
     © Cour de Justice de Los Santos 
 	</footer>
@@ -211,6 +241,46 @@ navLinks.forEach(link => {
     link.classList.remove('active');
   }
 });
+
+// Copier Discord
+  function copyDiscord(){
+    navigator.clipboard.writeText('https://discord.gg/TON_INVIT')
+      .then(()=>alert('Lien Discord copié !'));
+  }
+
+  // Webhooks pour formulaires
+  const webhookContact = 'https://discord.com/api/webhooks/1420938911890542692/Azy0htERIkmllI8UwjA4Hw_0RltBGpjDM5Gi6KxRXafxiYOxTiBCA8i2CELWG8qLzwUR';
+
+  async function handleContact(e){
+    e.preventDefault();
+    const data = new FormData(e.target);
+
+const embed = {
+  embeds: [{
+    title: "Nouveau message de contact",
+    color: 15158332, // Rouge clair
+    fields: [
+      { name: "Nom", value: data.get('pseudo'), inline: true },
+      { name: "Message", value: data.get('message') },
+      { name: "Téléphone", value: data.get('telephone'), inline: true },
+      { name: "Compte Life", value: data.get('life'), inline: true }
+    ],
+    timestamp: new Date()
+  }]
+};
+
+    await fetch(webhookContact, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(embed)
+    })
+    .then(()=>alert('Message envoyé avec succès !'))
+    .catch(()=>alert('Erreur lors de l\'envoi du message.'));
+
+    e.target.reset();
+  }
+
+
 </script>
 
 </html>
