@@ -263,7 +263,7 @@ const embed = {
     color: 0x5865F2, // Bleu Discord
     fields: [
       { name: "👤 Nom", value: data.get('pseudo') || "Non fourni", inline: true },
-      { name: "📞 Téléphone", value: data.get('telephone') || "Non fourni", inline: true },
+      { name: "☎️ Téléphone", value: data.get('telephone') || "Non fourni", inline: true },
       { 
         name: "🌐 Compte Life", 
         value: data.get('life') 
@@ -271,7 +271,9 @@ const embed = {
           : "Non fourni", 
         inline: true 
       },
+	  { name: "\u200B", value: "\u200B", inline: false }, // ligne vide pour espacement
       { name: "📝 Message", value: data.get('message') || "Aucun message" }
+	  { name: "\u200B", value: "\u200B", inline: false }, // ligne vide pour espacement
     ],
     thumbnail: {
       url: "https://cdn-icons-png.flaticon.com/512/847/847969.png" // Icône avatar générique
