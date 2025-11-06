@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cour Supérieure de Justice de Los Santos</title>
+  <title>Cour Supérieure de San Andreas </title>
     <link rel="icon" href="https://i.servimg.com/u/f11/19/17/76/36/fwmnt112.png">
   <style>
 :root{
@@ -23,7 +23,7 @@ body {
   background: linear-gradient(180deg,var(--bg) 0%,#1f2a3a 100%);
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
-  text-align: left; /* alignement général à gauche */
+  text-align: center; /* alignement général à gauche */
   display: block;   /* plus de flex centré */
 }
 header{display:flex;align-items:center;gap:16px;padding:18px 20px;border-bottom:1px solid rgba(255,255,255,0.05);backdrop-filter:blur(4px)}
@@ -59,8 +59,8 @@ label{font-size:13px;color:var(--muted);margin-bottom:6px;font-family:'Open Sans
     <div class="brand">
       <img src="https://i.servimg.com/u/f11/19/17/76/36/fwmnt112.png" alt="Logo" style="width:200px;border-radius:200px;">
       <div>
-        <h1>Cour Supérieure de Justice</h1>
-		<h2>de Los Santos</h2>
+        <h1>Cour Supérieure</h1>
+		<h1>de San Andreas </h1>
         <div class="small">Actualités</div>
       </div>
     </div>
@@ -353,7 +353,7 @@ width:100% et height:400px peuvent être ajustés selon ton design.
 </style>
 </div>
 <footer>
-© Cour Supérieure de Justice de Los Santos 
+© Cour Supérieure de San Andreas 
 </footer>
   
 <script>
@@ -374,13 +374,20 @@ navLinks.forEach(link => {
 });
 
 function toggleIframe(salle) {
-  const iframeBasse = document.getElementById('iframe-basse');
-  const iframeHaut = document.getElementById('iframe-haut');
+  const iframeId = salle === 'basse' ? 'iframe-basse' : 'iframe-haut';
+  const iframeDiv = document.getElementById(iframeId);
+  const iframe = iframeDiv.querySelector('iframe');
 
-  if (salle === 'basse') {
-    iframeBasse.style.display = iframeBasse.style.display === 'none' ? 'block' : 'none';
-  } else if (salle === 'haut') {
-    iframeHaut.style.display = iframeHaut.style.display === 'none' ? 'block' : 'none';
+  // Si l'iframe est cachée, on l'affiche et recharge
+  if (iframeDiv.style.display === 'none') {
+    iframeDiv.style.display = 'block';
+    
+    // Forcer le reload en ajoutant un paramètre unique pour éviter le cache
+    const originalSrc = iframe.getAttribute('data-src') || iframe.src;
+    iframe.setAttribute('data-src', originalSrc);
+    iframe.src = originalSrc + (originalSrc.includes('?') ? '&' : '?') + 'reload=' + new Date().getTime();
+  } else {
+    iframeDiv.style.display = 'none';
   }
 }
 </script>
